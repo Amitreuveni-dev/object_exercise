@@ -53,6 +53,13 @@ function salaryStatistics(employeesList, wantedDepartment) {
     var medSalary = getMedian(salary);
     alert("The salary statistics in " + wantedDepartment + " is:\n\n            Maximal Salary: " + maxSalary + "\n\n            Minimal Salary: " + minSalary + "\n\n            Average Salary: " + avgSalary + "\n\n            Median Salary: " + medSalary);
 }
+function printWorkers(employeesList) {
+    var listOfWorkers = "";
+    for (var _i = 0, employeesList_1 = employeesList; _i < employeesList_1.length; _i++) {
+        var worker = employeesList_1[_i];
+        listOfWorkers = listOfWorkers + worker.name + "\n";
+    }
+}
 function workersRecordsystem() {
     alert("Welcome to the Workers Record system");
     var userInput = prompt("What would you like to do\n\n        1. Add worker record\n\n        2. See the current workers record\n\n        3. Remove worker from the records\n\n        4. Get statistics\n\n        \"Cancel\" to exit the system.");

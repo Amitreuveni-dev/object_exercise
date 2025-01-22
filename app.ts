@@ -75,6 +75,14 @@ function salaryStatistics (employeesList : employee [], wantedDepartment : strin
 
 }
 
+function printWorkers(employeesList : employee []){
+
+    let listOfWorkers = "";
+    for(const worker of employeesList){
+        listOfWorkers = listOfWorkers + worker.name + "\n";
+    }
+}
+
 type employee = {
     name : string,
     age : number,
