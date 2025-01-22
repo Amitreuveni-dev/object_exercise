@@ -1,4 +1,3 @@
-//name age department salary
 function bubbleSort(inputArray) {
     var _a;
     var array = inputArray;
@@ -54,17 +53,36 @@ function salaryStatistics(employeesList, wantedDepartment) {
     var medSalary = getMedian(salary);
     alert("The salary statistics in " + wantedDepartment + " is:\n\n            Maximal Salary: " + maxSalary + "\n\n            Minimal Salary: " + minSalary + "\n\n            Average Salary: " + avgSalary + "\n\n            Median Salary: " + medSalary);
 }
-var numberOfEmployees = 5;
-var employeesList = [];
-for (var i = 0; i < numberOfEmployees; i++) {
-    employeesList.push(getEmployeeData());
+function printWorkers(employeesList) {
+    var listOfWorkers = "";
+    for (var _i = 0, employeesList_1 = employeesList; _i < employeesList_1.length; _i++) {
+        var worker = employeesList_1[_i];
+        listOfWorkers = listOfWorkers + worker.name + "\n";
+    }
 }
-salaryStatistics(employeesList, "all");
-// for (let i = 0; i < employeesList.length; i++){
-//     alert(`The data of ${i+1} employee is:\n
-//            Name: ${employeesList[i].name}\n
-//            Age: ${employeesList[i].age}\n
-//            Department: ${employeesList[i].department}\n
-//            Salary: ${employeesList[i].salary}\n
-//             `);
-// }
+function workersRecordsystem() {
+    alert("Welcome to the Workers Record system");
+    var userInput = prompt("What would you like to do\n\n        1. Add worker record\n\n        2. See the current workers record\n\n        3. Remove worker from the records\n\n        4. Get statistics\n\n        \"Cancel\" to exit the system.");
+    var employeesList = [];
+    while (userInput !== null) {
+        switch (userInput) {
+            case "1":
+                employeesList = addWorker(employeesList);
+                break;
+            case "2":
+                alert(printWorkers(employeesList));
+                break;
+            case "3":
+                employeesList = removeWorker(employeesList);
+                break;
+            case "4":
+                getStatistics(employeesList);
+                break;
+            default:
+                alert("I don't know what " + userInput + " is.");
+        }
+        userInput = prompt("What would you like to do\n\n            1. Add worker record\n\n            2. See the current workers record\n\n            3. Remove worker from the records\n\n            4. Get statistics\n\n            \"Cancel\" to exit the system.");
+    }
+    alert("Have a nice day!");
+}
+workersRecordsystem();

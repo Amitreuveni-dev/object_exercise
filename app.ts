@@ -1,4 +1,3 @@
-//name age department salary
 function bubbleSort(inputArray: number[]): number[] {
     let array = inputArray;
     const n = array.length;
@@ -83,6 +82,14 @@ function salaryStatistics (employeesList : employee [], wantedDepartment : strin
 
 }
 
+function printWorkers(employeesList : employee []){
+
+    let listOfWorkers = "";
+    for(const worker of employeesList){
+        listOfWorkers = listOfWorkers + worker.name + "\n";
+    }
+}
+
 type employee = {
     name : string,
     age : number,
@@ -90,24 +97,54 @@ type employee = {
     salary : number
 }
 
-const numberOfEmployees = 5;
-let employeesList : employee [] = [];
 
-for (let i = 0; i < numberOfEmployees; i++){
-    employeesList.push(getEmployeeData());
+function workersRecordsystem(){
+
+    alert("Welcome to the Workers Record system");
+    
+    let userInput = prompt(`What would you like to do\n
+        1. Add worker record\n
+        2. See the current workers record\n
+        3. Remove worker from the records\n
+        4. Get statistics\n
+        "Cancel" to exit the system.`);
+
+    let employeesList : employee [] = [];
+    while (userInput !== null){
+
+        switch (userInput) {
+            case "1" : 
+                employeesList = addWorker(employeesList);
+                break;
+            case "2" : 
+                alert(printWorkers(employeesList));
+                break;
+            case "3" : 
+                employeesList = removeWorker(employeesList);
+                break;
+            case "4" : 
+                getStatistics(employeesList);
+                break;
+            default: 
+                alert(`I don't know what ${userInput} is.`);
+        }
+
+        userInput = prompt(`What would you like to do\n
+            1. Add worker record\n
+            2. See the current workers record\n
+            3. Remove worker from the records\n
+            4. Get statistics\n
+            "Cancel" to exit the system.`);                
+
+
+    }
+
+    alert("Have a nice day!");
 }
 
-salaryStatistics(employeesList,"all");
+workersRecordsystem();
 
-// for (let i = 0; i < employeesList.length; i++){
-//     alert(`The data of ${i+1} employee is:\n
-//            Name: ${employeesList[i].name}\n
-//            Age: ${employeesList[i].age}\n
-//            Department: ${employeesList[i].department}\n
-//            Salary: ${employeesList[i].salary}\n
-//             `);
-        
-// }
+
 
 
 
