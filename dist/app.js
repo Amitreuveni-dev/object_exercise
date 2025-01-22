@@ -67,13 +67,13 @@ function workersRecordsystem() {
     while (userInput !== null) {
         switch (userInput) {
             case "1":
-                gradesRecord = addWorker(employeesList);
+                employeesList = addWorker(employeesList);
                 break;
             case "2":
                 alert(printWorkers(employeesList));
                 break;
             case "3":
-                gradesRecord = removeWorker(employeesList);
+                employeesList = removeWorker(employeesList);
                 break;
             case "4":
                 getStatistics(employeesList);
